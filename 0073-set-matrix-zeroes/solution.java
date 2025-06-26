@@ -1,41 +1,56 @@
+// class Pairs{
+//     int key;
+//     int value;
+//     Pairs(int key,int value){
+//         this.key=key;
+//         this.value=value;
+//     }
+// }
 class Solution {
     public void setZeroes(int[][] matrix) {
-        List<int[]> li=new ArrayList<>();
+        LinkedList<int[]> map=new LinkedList<>();
         for(int i=0;i<matrix.length;i++){
             for(int j=0;j<matrix[0].length;j++){
-                if(matrix[i][j]==0)
-                {
+                if(matrix[i][j]==0){
                     int[] arr=new int[2];
                     arr[0]=i;
                     arr[1]=j;
-                    li.add(arr);
+                    map.add(arr);
                 }
-                
             }
         }
-        for(int[] arr:li){
-            int i=arr[0];
-            int j=arr[1];
-            int r=i,l=j;
-                    while(r>=0){
-                        matrix[r][l]=0;
-                        r--;
-                    }
-                    r=i;
-                    while(r<matrix.length){
-                        matrix[r][l]=0;
-                        r++;
-                    }
-                    r=i;
-                    while(l>=0){
-                        matrix[r][l]=0;
-                        l--;
-                    }
-                    l=j;
-                    while(l<matrix[0].length){
-                        matrix[r][l]=0;
-                        l++;
-                    }
+        for(int[] arr:map)
+        {
+            int k=arr[0];
+            int m=arr[1];
+            while(k>=0)
+            {
+                matrix[k][m]=0;
+                k--;
+            }       
+            k=arr[0];
+            while(k<matrix.length)
+            {
+                matrix[k][m]=0;
+                k++;
+            } 
+            k=arr[0];
+            while(m>=0){
+                matrix[k][m]=0;
+                m--;
+            }
+            m=arr[1];
+            while(m<matrix[0].length){
+                matrix[k][m]=0;
+                m++;
+            }
+        }
+
+        for(int i=0;i<matrix.length;i++){
+            for(int j=0;j<matrix[0].length;j++){
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println();
         }
     }
 }
