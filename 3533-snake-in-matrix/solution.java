@@ -1,16 +1,16 @@
 class Solution {
     public int finalPositionOfSnake(int n, List<String> commands) {
-        int i=0,j=0;
-        for(String command:commands){
-            if(command.equals("UP"))
-                i--;
-            else if(command.equals("DOWN"))
-                i++;
-            else if(command.equals("RIGHT"))
-                j++;
-            else if(command.equals("LEFT"))
-                j--;
+        int s=0;
+        for(String st:commands){
+            if(st.equals("DOWN"))
+            s+=n;
+            else if(st.equals("RIGHT"))
+            s+=1;
+            else if(st.equals("LEFT"))
+            s-=1;
+            else
+            s-=n;
         }
-        return (n*i+j);
+        return s;
     }
 }
