@@ -1,4 +1,4 @@
 import pandas as pd
 
 def selectFirstRows(employees: pd.DataFrame) -> pd.DataFrame:
-    return employees[0:3]
+    return pd.DataFrame(employees).head(3)
